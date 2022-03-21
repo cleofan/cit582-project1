@@ -20,13 +20,14 @@ def verify():
     signature = content.get('sig')
     print("The signature is {}.\n".format(signature))
     message = payload.get('message')
-    print("The message send in payload is {}.\n".format(message.encode('ascii')))
+    print("Message:", message.encode('utf-8'))
+    print("Message:", bytes(message, 'utf-8'))
     pk = payload.get('pk')
     print("The public key is {}.\n".format(pk))
     
     #When the platform is algorand
     if (platform == 'Algorand'):
-        result = algosdk.util.verify_bytes(message.encode('ascii'),signature, pk)
+        result = algosdk.util.verify_bytes(message.encode('utf-8'),signature, pk)
         print("The message and signature verification is {}.\n".format(result))
     else:
         eth_encoded_msg = eth_account.messages.encode_defunct(text=message)
