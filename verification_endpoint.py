@@ -24,7 +24,7 @@ def verify():
         result = algosdk.util.verify_bytes(message.encode('utf-8'),signature, pk):
     else:
         eth_encoded_msg = eth_account.messages.encode_defunct(text=message)
-        recovered_pk = eth_account.Account.recover_message(eth_encoded_msg, signature = signature) == pk:
+        recovered_pk = eth_account.Account.recover_message(eth_encoded_msg, signature = signature)
         result = (recovered_pk == pk)
          
 
