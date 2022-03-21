@@ -20,7 +20,7 @@ def verify():
     signature = content.get('sig')
     print("The signature is {}.\n".format(signature))
     message = payload.get('message')
-    print("The message send in payload is {}.\n".format(message))
+    print("The message send in payload is {}.\n".format(message.encode('utf-8'))
     pk = payload.get('pk')
     print("The public key is {}.\n".format(pk))
     
