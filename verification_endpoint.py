@@ -27,10 +27,8 @@ def verify():
     #When the platform is algorand
     if (platform == 'Algorand'):
         print("Yo!\n")
-
         result = algosdk.util.verify_bytes(message.encode('utf-8'),signature, pk)
-        if (result):
-            print("The message and signature verifies.\n")
+        print("The message and signature verification is {}.\n".format(result))
     else:
         result = True
 
