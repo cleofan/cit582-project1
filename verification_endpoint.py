@@ -15,9 +15,10 @@ def verify():
     
     #First check which platform
     payload = content.get('payload')
+    print(payload.keys())
     platform = payload.get('platform')
     print("The platform is {}.\n".format(platform))
-    signature = payload.get('sig')
+    signature = content.get('sig')
     print("The signature is {}.\n".format(signature))
     message = payload.get('message')
     print("The message send in payload is {}.\n".format(message.encode('utf-8')))
