@@ -26,7 +26,7 @@ def verify():
     
     #When the platform is algorand
     if (platform == 'Algorand'):
-        result = algosdk.util.verify_bytes(message.encode('UTF-8'),signature, pk)
+        result = algosdk.util.verify_bytes(message.encode('ascii'),signature, pk)
         print("The message and signature verification is {}.\n".format(result))
     else:
         eth_encoded_msg = eth_account.messages.encode_defunct(text=message)
