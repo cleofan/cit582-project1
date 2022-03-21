@@ -25,7 +25,7 @@ def verify():
     print("The public key is {}.\n".format(pk))
     
     #When the platform is algorand
-    if (platform == "Algorand"):
+    if (platform == 'Algorand'):
         print("Yo!\n")
 
         result = algosdk.util.verify_bytes(message.encode('utf-8'),signature,algo_pk)
