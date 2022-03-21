@@ -7,6 +7,7 @@ import algosdk
 app = Flask(__name__)
 api = Api(app)
 app.url_map.strict_slashes = False
+debug(True)
 
 @app.route('/verify', methods=['GET','POST'])
 def verify():
@@ -14,18 +15,18 @@ def verify():
     
     #First check which platform
     payload = content.get('payload')
-    print(payload.keys())
+    #print(payload.keys())
     platform = payload.get('platform')
-    print("The platform is {}.\n".format(platform))
+    #print("The platform is {}.\n".format(platform))
     signature = content.get('sig')
-    print("The signature is {}.\n".format(signature))
+    #print("The signature is {}.\n".format(signature))
     message = payload.get('message')
-    print("Message:", message.encode('utf-8'))
-    test = "My Name Is Cleo"
-    print("Test String:", test.encode('utf-8'))
-    print("Message:", bytes(message, 'utf-8'))
+    #print("Message:", message.encode('utf-8'))
+    #test = "My Name Is Cleo"
+    #print("Test String:", test.encode('utf-8'))
+    #print("Message:", bytes(message, 'utf-8'))
     pk = payload.get('pk')
-    print("The public key is {}.\n".format(pk))
+    #print("The public key is {}.\n".format(pk))
     
     #When the platform is algorand
     if (platform == 'Algorand'):
