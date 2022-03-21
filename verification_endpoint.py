@@ -21,14 +21,12 @@ def verify():
     
     #When the platform is algorand
     if platform == 'Algorand':
-        if algosdk.util.verify_bytes(message.encode('utf-8'),signature, pk):
-            print("The message and signature verification is successful.")
-            result=True
+        result = algosdk.util.verify_bytes(message.encode('utf-8'),signature, pk):
     else:
         eth_encoded_msg = eth_account.messages.encode_defunct(text=message)
-        if eth_account.Account.recover_message(eth_encoded_msg, signature = signature) == pk:
-            result = True
-            print("The verification result is:", result)
+        recovered_pk = eth_account.Account.recover_message(eth_encoded_msg, signature = signature) == pk:
+        result = (recovered_pk == pk)
+         
 
     #Check if signature is valid
     #Should only be true if signature validates
