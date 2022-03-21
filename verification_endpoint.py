@@ -29,7 +29,6 @@ def verify():
         print("Yo!\n")
         result = algosdk.util.verify_bytes(message.encode('utf-8'),signature, pk)
         print("The message and signature verification is {}.\n".format(result))
-        result = True
     else:
         result = True
 
