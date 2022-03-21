@@ -11,7 +11,6 @@ app.url_map.strict_slashes = False
 @app.route('/verify', methods=['GET','POST'])
 def verify():
     content = request.get_json(silent=True)
-    print(content.keys())
     
     #First check which platform
     payload = content.get('payload')
@@ -21,14 +20,13 @@ def verify():
     signature = content.get('sig')
     print("The signature is {}.\n".format(signature))
     message = payload.get('message')
-    print("The message send in payload is {}.\n".format(message.encode('utf-8')))
+    print("The message send in payload is {}.\n".format(message.encode('ascii')))
     pk = payload.get('pk')
     print("The public key is {}.\n".format(pk))
     
     #When the platform is algorand
     if (platform == 'Algorand'):
-        print("Yo!\n")
-        result = algosdk.util.verify_bytes(message.encode('utf-8'),signature, pk)
+        result = algosdk.util.verify_bytes(message.encode('UTF-8'),signature, pk)
         print("The message and signature verification is {}.\n".format(result))
     else:
         eth_encoded_msg = eth_account.messages.encode_defunct(text=message)
