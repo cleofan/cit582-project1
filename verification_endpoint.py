@@ -27,7 +27,7 @@ def verify():
         if (result):
             print("The message and signature verifies.\n")
     else:
-        return = True
+        result = True
 
     #Check if signature is valid
     #Should only be true if signature validates
