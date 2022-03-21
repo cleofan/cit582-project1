@@ -7,7 +7,7 @@ import algosdk
 app = Flask(__name__)
 api = Api(app)
 app.url_map.strict_slashes = False
-debug(True)
+app.config['DEBUG'] = True
 
 @app.route('/verify', methods=['GET','POST'])
 def verify():
