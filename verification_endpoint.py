@@ -27,7 +27,7 @@ def verify():
     else:
         eth_encoded_msg = eth_account.messages.encode_defunct(text=message)
         if eth_account.Account.recover_message(eth_encoded_msg, signature = signature) == pk:
-            #result = True
+            result = True
             print("The verification result is:", result)
 
     #Check if signature is valid
