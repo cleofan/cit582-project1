@@ -19,7 +19,7 @@ def verify():
     print("The platform is {}.\n".format(platform))
     signature = content.get('sig')
     print("The signature is {}.\n".format(signature))
-    message = payload.get('messgae')
+    message = payload.get('message')
     print("The message send in payload is {}.\n".format(signature))
     pk = payload.get('pk')
     print("The public key is {}.\n".format(pk))
