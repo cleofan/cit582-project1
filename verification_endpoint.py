@@ -12,12 +12,25 @@ app.url_map.strict_slashes = False
 def verify():
     print("Hello?")
     content = request.get_json(silent=True)
+    
+    #First check which platform
     payload = content.get('payload')
     platform = payload.get('platform')
     print("The platform is {}.\n".format(platform))
+    
+    #When the platform is algorand
+    if (platform == "Algorand"):
+        signature = content.get('sig')
+        message = payload.get('message')
+        algo_pk = payload.get('pk')
+        result = algosdk.util.verify_bytes(message.encode('utf-8'),signature,algo_pk)
+        if (result):
+            print("The message and signature verifies.\n")
+    else:
+        return = True
 
     #Check if signature is valid
-    result = True #Should only be true if signature validates
+    #Should only be true if signature validates
     return jsonify(result)
 
 if __name__ == '__main__':
