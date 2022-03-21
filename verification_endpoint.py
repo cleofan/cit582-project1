@@ -21,7 +21,8 @@ def verify():
     print("The signature is {}.\n".format(signature))
     message = payload.get('message')
     print("Message:", message.encode('utf-8'))
-    print("Type:", type(message))
+    test = "My Name Is Cleo"
+    print("Test String:", test.encode('utf-8'))
     print("Message:", bytes(message, 'utf-8'))
     pk = payload.get('pk')
     print("The public key is {}.\n".format(pk))
